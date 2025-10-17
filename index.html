@@ -30,31 +30,37 @@
   <!-- Hero -->
   <section id="home" class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-indigo-600/20 via-transparent to-transparent"></div>
-    <div class="max-w-5xl mx-auto px-4 py-20 md:py-28">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+    <div class="max-w-5xl mx-auto px-4 py-16 md:py-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <!-- LEFT: Text -->
         <div>
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight max-w-[16ch]">
             Power Electronics × Battery Diagnostics
           </h1>
-          <p class="mt-4 text-slate-300 text-lg">
-            Ph.D. candidate researching inverter‑based lithium‑ion battery diagnostics, PQ & supraharmonics, and data‑driven health estimation.
+          <p class="mt-4 text-slate-300 text-base md:text-lg max-w-prose">
+            Ph.D. candidate researching inverter-based lithium-ion battery diagnostics, PQ & supraharmonics,
+            and data-driven health estimation.
           </p>
           <div class="mt-6 flex gap-3">
             <a href="#projects" class="px-5 py-3 rounded-2xl bg-indigo-500 hover:bg-indigo-400 font-semibold">See Projects</a>
             <a href="#contact" class="px-5 py-3 rounded-2xl border border-slate-700 hover:border-slate-500">Get in Touch</a>
           </div>
         </div>
+  
+        <!-- RIGHT: Photo card (fixed width, auto height) -->
         <div class="md:justify-self-end">
-          <div class="aspect-square rounded-3xl bg-gradient-to-tr from-indigo-500/20 to-sky-500/20 border border-slate-800 p-1">
-            <div class="h-full w-full rounded-2xl bg-slate-900 grid place-items-center text-center p-8">
-              <img src="img/profile/ysk_profile.jpeg" alt="Profile photo" class="rounded-2xl w-64 mx-auto mb-4" />
-              <p class="text-2xl font-bold text-indigo-300">Young Soo Kim</p>
+          <div class="w-[320px] md:w-[360px] rounded-3xl border border-slate-800/80 bg-gradient-to-tr from-indigo-500/10 to-sky-500/10 p-1">
+            <div class="rounded-2xl bg-slate-900 p-4">
+              <img src="img/profile/me.jpg" alt="Young Soo Kim"
+                   class="rounded-2xl w-full h-[380px] object-cover object-center" />
+              <p class="text-center text-indigo-300 font-bold mt-3">Young Soo Kim</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- About -->
   <section id="about" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
