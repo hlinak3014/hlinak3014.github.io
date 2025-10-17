@@ -124,5 +124,49 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+async function loadExcelAndRender() {
+  // 엑셀 위치 (루트에 두면 '/cvfile-mycv_20251017.xlsx' 처럼 경로만 쓰면 됨)
+  const excelPath = '/data/cv_20251017.xlsx'; // 네 파일 경로로 바꿔
+
+  // 엑셀 가져오기
+  const res = await fetch(excelPath);
+  const buf = await res.arrayBuffer();
+
+  // SheetJS로 파싱
+  const wb = XLSX.read(buf, { type: 'array' });
+
+  // 첫 시트 사용(또는 wb.SheetNames에서 이름으로 선택)
+  const ws = wb.Sheets[wb.SheetNames[0]];
+
+  // JSON으로 변환 (1행을 헤더로)
+  const rows = XLSX.utils.sheet_to_json(ws); // [{Year:2025, Title:'...', Link:'...'}, ...]
+
+  // 렌더링 타깃
+  const wrap = document.getElementById('achievements');
+  wrap.innerHTML = rows.map(r => {
+    const year = r.Year ?? r.year ?? '';
+    const title = r.Title ?? r.title ?? '';
+    const venue = r.Venue ?? r.venue ?? '';
+    const link = r.Link ?? r.link ?? '';
+    const linkHtml = link ? ` — <a class="underline" href="${link}" target="_blank">link</a>` : '';
+    return `<li class="p-3 rounded-xl border border-slate-800 bg-slate-900/60">
+              <b>${year}</b> · ${title}${venue ? ` — <i>${venue}</i>` : ''}${linkHtml}
+            </li>`;
+  }).join('');
+}
+document.addEventListener('DOMContentLoaded', loadExcelAndRender);
+</script>
+
+<section class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+  <h2 class="text-2xl md:text-3xl font-extrabold">Achievements</h2>
+  <ul id="achievements" class="mt-6 space-y-3 text-sm"></ul>
+</section>
+
+
+
 </body>
 </html>
