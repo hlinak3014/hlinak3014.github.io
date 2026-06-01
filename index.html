@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Young Soo Kim — Personal Site</title>
-  <meta name="description" content="Research, projects, and contact for Young Soo Kim." />
+  <meta name="description" content="Ph.D. researcher in battery diagnostics and power electronics — Young Soo Kim." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -20,8 +20,12 @@
       <a href="#home" class="text-lg font-extrabold tracking-tight">YSK<span class="text-indigo-400">.site</span></a>
       <nav class="hidden md:flex gap-6 text-sm">
         <a href="#about" class="hover:text-indigo-300">About</a>
-        <a href="#projects" class="hover:text-indigo-300">Projects</a>
+        <a href="#education" class="hover:text-indigo-300">Education</a>
+        <a href="#research" class="hover:text-indigo-300">Research</a>
         <a href="#pubs" class="hover:text-indigo-300">Publications</a>
+        <a href="#conf" class="hover:text-indigo-300">Conferences</a>
+        <a href="#patents" class="hover:text-indigo-300">Patents</a>
+        <a href="#awards" class="hover:text-indigo-300">Awards</a>
         <a href="#contact" class="hover:text-indigo-300">Contact</a>
       </nav>
     </div>
@@ -35,14 +39,14 @@
         <!-- LEFT: Text -->
         <div>
           <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight max-w-[16ch]">
-            Power Electronics × Battery Diagnostics
+            Battery Diagnostics × Power Electronics
           </h1>
           <p class="mt-4 text-slate-300 text-base md:text-lg max-w-prose">
-            Ph.D. candidate researching inverter-based lithium-ion battery diagnostics, PQ & supraharmonics,
-            and data-driven health estimation.
+            Ph.D. student at Yonsei University researching battery state-of-health diagnosis,
+            deep learning for state estimation, and time–frequency analysis in IBR-related grids.
           </p>
-          <div class="mt-6 flex gap-3">
-            <a href="#projects" class="px-5 py-3 rounded-2xl bg-indigo-500 hover:bg-indigo-400 font-semibold">See Projects</a>
+          <div class="mt-6 flex gap-3 flex-wrap">
+            <a href="#research" class="px-5 py-3 rounded-2xl bg-indigo-500 hover:bg-indigo-400 font-semibold">Research</a>
             <a href="#contact" class="px-5 py-3 rounded-2xl border border-slate-700 hover:border-slate-500">Get in Touch</a>
           </div>
         </div>
@@ -54,6 +58,7 @@
               <img src="img/profile/ysk_profile.jpeg" alt="Young Soo Kim"
                    class="rounded-2xl w-full h-[380px] object-cover object-center" />
               <p class="text-center text-indigo-300 font-bold mt-3">Young Soo Kim</p>
+              <p class="text-center text-slate-400 text-xs mt-1">Seoul, Republic of Korea</p>
             </div>
           </div>
         </div>
@@ -61,61 +66,177 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- About / Research Interests -->
   <section id="about" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
     <h2 class="text-2xl md:text-3xl font-extrabold">About</h2>
     <p class="mt-4 text-slate-300 leading-relaxed">
-      I’m a 5th‑year M.S.–Ph.D. student at Yonsei University. My work bridges battery health diagnostics with power electronics, focusing on signal injection, over‑potential modeling, and time‑frequency analysis of inverter systems.
+      I'm a Ph.D. student in the Integrated Master's–Doctoral program at Yonsei University,
+      advised by Prof. Yong-June Shin at the Energy Informatics Lab. My research focuses on
+      advanced diagnostics for energy storage systems and power quality analysis.
     </p>
-    <ul class="mt-6 grid md:grid-cols-2 gap-3 text-sm text-slate-300">
-      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">IEEE TIE/TIM first‑author papers in preparation</li>
-      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">Supraharmonics & PQ analytics at 100 kHz</li>
-      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">STM32/FPGA prototyping & lab instrumentation</li>
-      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">EU Horizon & KHBCC collaboration</li>
+    <h3 class="mt-8 text-lg font-bold text-indigo-300">Research Interests</h3>
+    <ul class="mt-3 grid md:grid-cols-3 gap-3 text-sm text-slate-300">
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">Battery State-of-Health (SOH) Diagnosis</li>
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">Deep Learning for Battery State Estimation</li>
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">Time–Frequency Analysis in IBR-related Grid</li>
     </ul>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
-    <h2 class="text-2xl md:text-3xl font-extrabold">Selected Projects</h2>
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <article class="rounded-2xl p-5 border border-slate-800 bg-slate-900/60">
-        <h3 class="font-bold">Overpotential‑Based HI</h3>
-        <p class="mt-2 text-sm text-slate-300">Single‑frequency injection method with CCR/diode EEC capturing directional nonlinearity.</p>
-        <ul class="mt-3 text-sm list-disc list-inside text-slate-400">
-          <li>Rapid measurement (50/60 Hz)</li>
-          <li>Mahalanobis ellipse tracking</li>
+  <!-- Education -->
+  <section id="education" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+    <h2 class="text-2xl md:text-3xl font-extrabold">Education</h2>
+    <div class="mt-6 space-y-5">
+      <div class="p-5 rounded-2xl border border-slate-800 bg-slate-900/60">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-bold">Yonsei University</h3>
+          <span class="text-sm text-slate-400">Mar 2021 – Present</span>
+        </div>
+        <p class="text-sm text-slate-300 italic mt-1">
+          Ph.D. Student in Electrical and Electronic Engineering
+          (Integrated Master's and Doctoral Program) — Seoul, Republic of Korea
+        </p>
+        <ul class="mt-3 text-sm list-disc list-inside text-slate-400 space-y-1">
+          <li>Advisor: Prof. Yong-June Shin (<em>Energy Informatics Lab.</em>)</li>
+          <li>Research: Advanced diagnostics for energy storage systems and power quality analysis.</li>
+        </ul>
+      </div>
+
+      <div class="p-5 rounded-2xl border border-slate-800 bg-slate-900/60">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-bold">Yonsei University</h3>
+          <span class="text-sm text-slate-400">Mar 2015 – Feb 2021</span>
+        </div>
+        <p class="text-sm text-slate-300 italic mt-1">
+          B.S. in Electrical and Electronic Engineering — Seoul, Republic of Korea
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Experience -->
+  <section id="research" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+    <h2 class="text-2xl md:text-3xl font-extrabold">Research Experience</h2>
+    <div class="mt-6 space-y-5">
+      <article class="p-5 rounded-2xl border border-slate-800 bg-slate-900/60">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-bold">Development of ESS–Cable Integrated Diagnostics &amp; Management System for Future Grid</h3>
+          <span class="text-sm text-slate-400">Mar 2023 – Present</span>
+        </div>
+        <p class="text-sm text-slate-300 italic mt-1">National Research Foundation of Korea (NRF)</p>
+        <ul class="mt-3 text-sm list-disc list-inside text-slate-400 space-y-1">
+          <li><span class="text-slate-300 font-semibold">Role:</span> Graduate Researcher</li>
+          <li>Developed health diagnosis algorithms for Battery/ESS units.</li>
         </ul>
       </article>
-      <article class="rounded-2xl p-5 border border-slate-800 bg-slate-900/60">
-        <h3 class="font-bold">Supraharmonics Analyzer</h3>
-        <p class="mt-2 text-sm text-slate-300">Time‑frequency pipeline (STFT/WVD/wavelet) for 4–20 kHz inverter sidebands.</p>
-        <ul class="mt-3 text-sm list-disc list-inside text-slate-400">
-          <li>100 kHz sampling, streaming FFT</li>
-          <li>PQ indices & dashboards</li>
+
+      <article class="p-5 rounded-2xl border border-slate-800 bg-slate-900/60">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-bold">Establishment and Pilot Operation Plan for the Korea–Hungary Battery Cooperation Research Center</h3>
+          <span class="text-sm text-slate-400">Dec 2024 – Nov 2025</span>
+        </div>
+        <p class="text-sm text-slate-300 italic mt-1">Korea Development Institute (KDI)</p>
+        <ul class="mt-3 text-sm list-disc list-inside text-slate-400 space-y-1">
+          <li><span class="text-slate-300 font-semibold">Role:</span> Research Assistant</li>
+          <li>Conducted research on lithium-ion battery state estimation and documented technical reports for policy.</li>
         </ul>
       </article>
     </div>
   </section>
 
   <!-- Publications -->
-  <!-- Publications -->
   <section id="pubs" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
     <h2 class="text-2xl md:text-3xl font-extrabold">Publications</h2>
-    <ul class="mt-6 space-y-4 text-sm">
+    <ol class="mt-6 space-y-4 text-sm list-decimal list-inside">
       <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-        <span class="font-semibold text-emerald-400">(Accepted)</span> Overpotential‑Based Health Index for Diagnosis of Li‑ion Battery Degradation — <em>IEEE T‑IM</em>
+        <span class="font-semibold text-emerald-400">(Accepted)</span>
+        <strong>Y. S. Kim</strong>, H. Lim, S. H. Kim, and Y.-J. Shin,
+        "Overpotential-Based Health Index for Diagnosis of Lithium-Ion Battery Degradation,"
+        <em>IEEE Trans. Instrum. Meas.</em>, May 2026.
+      </li>
+    </ol>
+  </section>
+
+  <!-- Conferences -->
+  <section id="conf" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+    <h2 class="text-2xl md:text-3xl font-extrabold">Conferences</h2>
+    <ol class="mt-6 space-y-4 text-sm list-decimal list-inside">
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <strong>Y. S. Kim</strong>, H. M. Lee, and Y.-J. Shin,
+        "State Estimation of Lithium-ion Battery based on Harmonic Analysis,"
+        <em>KIEE Summer Conference</em>, Jul. 2022. (Oral Session)
       </li>
       <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-        (Draft) Inverter‑Injected Diagnostics of Li‑ion Batteries — <em>IEEE T‑IE</em>
+        <strong>Y. S. Kim</strong>, H. M. Lee, and Y.-J. Shin,
+        "State Estimation of Lithium-Ion Battery using Radius of Curvature based on Electrochemical Impedance Spectroscopy,"
+        <em>Proc. of 9th Int. Conf. on Condition Monitoring and Diagnosis (CMD)</em>, pp. 343–346, Nov. 2022. (Poster Session)
+      </li>
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        S. J. Jung, <strong>Y. S. Kim</strong>, and Y.-J. Shin,
+        "Estimation of the Optimal Charging/Discharging Section for Minimizing Lithium-ion Battery Aging,"
+        <em>KIEE Summer Conference</em>, pp. 1758–1759, Jul. 2023.
+      </li>
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        H. Park, <strong>Y. S. Kim</strong>, and Y.-J. Shin,
+        "Real-Time State Estimation of Lithium-Ion Battery Using Image-Based Regression with CNN,"
+        <em>Proc. of 10th Int. Conf. on Condition Monitoring and Diagnosis (CMD)</em>, 2024.
+      </li>
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        S. M. Choi, <strong>Y. S. Kim</strong>, H. Park, and Y.-J. Shin,
+        "EIS Analysis Aged Lithium-ion Battery by Comparing RC Parallel Equivalent Circuits,"
+        <em>Proc. of 10th Int. Conf. on Condition Monitoring and Diagnosis (CMD)</em>, 2024.
+      </li>
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        G. H. Lee, <strong>Y. S. Kim</strong>, and Y.-J. Shin,
+        "Optimal Charge/Discharge Range Estimation of LiB based on Heat Generation Rate,"
+        <em>KIEE Summer Conference</em>, pp. 1180–1181, Jul. 2025.
+      </li>
+    </ol>
+  </section>
+
+  <!-- Patents -->
+  <section id="patents" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+    <h2 class="text-2xl md:text-3xl font-extrabold">Patents</h2>
+    <ul class="mt-6 space-y-4 text-sm">
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <span class="font-semibold text-indigo-300">Domestic (KR):</span>
+        Method and apparatus for charging and discharging lithium-ion battery
+        (10-2024-0073779), 2024. <span class="text-slate-400">(Co-inventor)</span>
+      </li>
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <span class="font-semibold text-indigo-300">International (US):</span>
+        Method and apparatus for charging and discharging lithium-ion battery
+        (19/226,740), 2025. <span class="text-slate-400">(Co-inventor)</span>
       </li>
     </ul>
   </section>
 
-  <!-- Achievements (loaded from Excel) -->
-  <section class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
-    <h2 class="text-2xl md:text-3xl font-extrabold">Achievements</h2>
-    <ul id="achievements" class="mt-6 space-y-3 text-sm"></ul>
+  <!-- Technical Skills -->
+  <section id="skills" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+    <h2 class="text-2xl md:text-3xl font-extrabold">Technical Skills</h2>
+    <div class="mt-6 grid md:grid-cols-2 gap-4 text-sm">
+      <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <h3 class="font-bold text-indigo-300">Languages</h3>
+        <p class="mt-2 text-slate-300">Python, C++, MATLAB</p>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <h3 class="font-bold text-indigo-300">Tools</h3>
+        <p class="mt-2 text-slate-300">Docker, PyTorch</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honors & Awards -->
+  <section id="awards" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+    <h2 class="text-2xl md:text-3xl font-extrabold">Honors &amp; Awards</h2>
+    <ul class="mt-6 space-y-3 text-sm">
+      <li class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-wrap justify-between gap-2">
+        <span>
+          <strong>Outstanding Paper Award</strong> —
+          <em>The Korean Institute of Electrical Engineers (KIEE)</em>
+        </span>
+        <span class="text-slate-400">2022</span>
+      </li>
+    </ul>
   </section>
 
   <!-- Contact (email only) -->
@@ -123,45 +244,17 @@
     <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
     <p class="mt-3 text-slate-300">
       Email:
-      <a class="underline hover:text-indigo-300" href="mailto:you@example.com">you@example.com</a>
+      <a class="underline hover:text-indigo-300" href="mailto:hlinak3014@gmail.com">hlinak3014@gmail.com</a>
     </p>
   </section>
 
   <footer class="py-10 border-t border-slate-800 text-center text-xs text-slate-500">
     © <span id="y"></span> Young Soo Kim. All rights reserved.
+    <span class="block mt-1">Last updated: January 2026</span>
   </footer>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <script>
-    async function loadExcelAndRender() {
-      const excelPath = '/data/cv_20251017.xlsx';
-
-      const res = await fetch(excelPath);
-      const buf = await res.arrayBuffer();
-
-      const wb = XLSX.read(buf, { type: 'array' });
-      const ws = wb.Sheets[wb.SheetNames[0]];
-
-      // 1행을 헤더로 사용해 JSON 변환
-      const rows = XLSX.utils.sheet_to_json(ws);
-
-      const wrap = document.getElementById('achievements');
-      wrap.innerHTML = rows.map(r => {
-        const year = r.Year ?? r.year ?? '';
-        const title = r.Title ?? r.title ?? '';
-        const venue = r.Venue ?? r.venue ?? '';
-        const link = r.Link ?? r.link ?? '';
-        const linkHtml = link ? ` — <a class="underline" href="${link}" target="_blank">link</a>` : '';
-        return `<li class="p-3 rounded-xl border border-slate-800 bg-slate-900/60">
-                  <b>${year}</b> · ${title}${venue ? ` — <i>${venue}</i>` : ''}${linkHtml}
-                </li>`;
-      }).join('');
-    }
-    document.addEventListener('DOMContentLoaded', loadExcelAndRender);
   </script>
 </body>
 </html>
