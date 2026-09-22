@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기업 등록 신청 | KHBCC</title>
+<meta name="description" content="KHBCC 회원사 데이터베이스 등록 및 B2B 매칭 참여 신청.">
+<link rel="icon" href="assets/khbcc-mark.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1430; --ink-2:#18204A; --line-dark:#2B3563;
+  --paper:#F1F2F5; --paper-2:#FAFAFB; --steel:#5A6274; --line:#D3D6DE;
+  --red:#D81018; --green:#3E8F57;
+  --display:'Archivo','Noto Sans KR',system-ui,sans-serif;
+  --body:'Inter','Noto Sans KR',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Noto Sans KR',monospace;
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+img{max-width:100%;display:block}
+a{color:inherit}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--steel);display:block}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;letter-spacing:-.015em}
+p{max-width:66ch}
+
+header{position:sticky;top:0;z-index:50;background:rgba(241,242,245,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:18px;padding:11px var(--pad)}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.mark img{height:34px;width:auto;flex-shrink:0}
+.mark .wmbox{display:flex;flex-direction:column;gap:1px;line-height:1.1}
+.mark .wm{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;color:var(--ink);line-height:1.1}
+.mark .wmsub{font-family:var(--mono);font-size:9.5px;letter-spacing:.03em;color:var(--steel);white-space:nowrap}
+nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nv{position:relative}
+.nv-t,.nv-s{font-family:var(--mono);font-size:12px;color:var(--steel);text-decoration:none;background:none;border:0;cursor:pointer;padding:8px 10px;border-radius:3px;white-space:nowrap;line-height:1.2}
+.nv-t::after{content:'';display:inline-block;width:4px;height:4px;margin-left:6px;vertical-align:2px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg)}
+.nv-t:hover,.nv-s:hover,.nv-s.on{color:var(--ink);background:rgba(14,20,48,.06)}
+.nv-t[aria-expanded="true"]{color:var(--ink);background:rgba(14,20,48,.06)}
+.nv-m{position:absolute;top:calc(100% + 6px);left:0;min-width:172px;background:#fff;border:1px solid var(--line);border-radius:4px;box-shadow:0 6px 20px rgba(14,20,48,.12);padding:5px;display:none;z-index:60}
+.nv-m a{display:block;font-family:var(--body);font-size:13.5px;color:var(--ink);text-decoration:none;padding:8px 11px;border-radius:3px;white-space:nowrap}
+.nv-m a:hover{background:#EDEFF4}
+.nv.open .nv-m{display:block}
+.lang{display:flex;border:1.5px solid var(--ink);border-radius:3px;overflow:hidden;flex-shrink:0}
+.lang button{font-family:var(--mono);font-size:11px;letter-spacing:.07em;background:transparent;border:0;border-right:1px solid var(--ink);color:var(--ink);padding:6px 9px;cursor:pointer;line-height:1;transition:.15s}
+.lang button:last-child{border-right:0}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper-2)}
+.lang button:hover:not([aria-pressed="true"]){background:rgba(14,20,48,.09)}
+
+.page-head{background:var(--ink);color:var(--paper-2);padding:clamp(40px,6vw,68px) var(--pad) clamp(30px,4.5vw,50px);position:relative;overflow:hidden}
+.page-head::after{content:'';position:absolute;right:-8%;top:12%;width:54%;aspect-ratio:2.79;background:url('assets/khbcc-logo.png?v=2') center/contain no-repeat;opacity:.08;pointer-events:none}
+.page-head .wrap{position:relative;z-index:1}
+.page-head .eyebrow{color:#8E99C4}
+.page-head h1{font-size:clamp(26px,4vw,42px);margin:13px 0 15px;max-width:20ch}
+.page-head p{color:#B9C1DC;max-width:58ch}
+.wrap{max-width:920px;margin:0 auto}
+
+main{padding:clamp(34px,5vw,56px) var(--pad) clamp(56px,7vw,88px)}
+
+.note{background:#FFF;border:1px solid var(--line);border-left:3px solid var(--red);border-radius:3px;padding:16px 18px;margin-bottom:32px}
+.note p{font-size:14.5px;color:var(--steel);margin:0}
+
+
+.crit{margin-bottom:clamp(34px,5vw,52px);scroll-margin-top:80px}
+.crit .sec-head{margin-bottom:22px;max-width:72ch}
+.crit .sec-head h2{font-size:clamp(20px,2.6vw,27px);margin:11px 0 12px}
+.crit .sec-head p{font-size:14.5px;color:var(--steel)}
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.value{background:#fff;padding:20px}
+.vicon{width:34px;height:34px;object-fit:contain;margin-bottom:10px;opacity:.85}
+.value .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;display:inline-block;padding:3px 8px;border-radius:2px;margin-bottom:10px;color:#fff}
+.value:nth-child(1) .tag{background:#2E75B6}
+.value:nth-child(2) .tag{background:#ED7D31}
+.value:nth-child(3) .tag{background:#70AD47}
+.value p{font-size:14px;color:var(--steel);line-height:1.6}
+fieldset{border:0;padding:0;margin:0 0 30px}
+legend{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:18px;width:100%;display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.wide{grid-column:1 / -1}
+.f label{font-size:13.5px;font-weight:500;color:var(--ink)}
+.f label .req{color:var(--red);margin-left:3px}
+.f .hint{font-size:12px;color:var(--steel);line-height:1.5}
+.f input,.f select,.f textarea{
+  font-family:var(--body);font-size:15px;color:var(--ink);
+  background:#fff;border:1px solid var(--line);border-radius:3px;padding:10px 12px;width:100%;
+}
+.f textarea{min-height:120px;resize:vertical;line-height:1.6}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--ink);outline:2px solid var(--red);outline-offset:1px}
+.checks{display:flex;flex-wrap:wrap;gap:9px}
+.checks label{display:flex;align-items:center;gap:7px;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:3px;padding:9px 13px;cursor:pointer}
+.checks input{width:auto;margin:0}
+.checks label:has(input:checked){border-color:var(--ink);background:#EDEFF4}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:8px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;border:0;border-radius:2px;padding:13px 21px;cursor:pointer;transition:.15s;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:#b30d14}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.status{font-size:14px;color:var(--steel);flex:1 1 100%}
+.status.err{color:var(--red)}
+.status.ok{color:#2F7A48}
+
+footer{background:#080C22;color:#6C769F;padding:22px var(--pad);font-family:var(--mono);font-size:11px;letter-spacing:.03em;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+@media (max-width:1440px){
+  nav{gap:1px}
+  .nv-t,.nv-s{font-size:11.5px;padding:8px 8px}
+}
+@media (max-width:1320px){
+  .mark .wmsub{display:none}
+  nav{gap:0}
+  .nv-t,.nv-s{font-size:11px;padding:8px 6px}
+}
+@media (max-width:1100px){
+  nav{display:none}
+  .mark .wmsub{display:none}
+  .page-head::after{display:none}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="mark">
+      <img src="assets/khbcc-logo.png?v=2" alt="KHBCC">
+      <span class="wmbox">
+        <span class="wm">KHBCC</span>
+        <span class="wmsub">Korea&#8211;Hungary Battery Cooperation Center</span>
+      </span>
+    </a>
+    <nav>
+      <div class="nv">
+        <button class="nv-t" aria-expanded="false" data-i18n="nav1">센터 소개</button>
+        <div class="nv-m">
+          <a href="index.html#about" data-i18n="sub1a">설립 배경</a>
+          <a href="index.html#governance" data-i18n="sub1c">운영 체계</a>
+          <a href="index.html#partners" data-i18n="sub1d">참여 기관</a>
+        </div>
+      </div>
+      <div class="nv">
+        <button class="nv-t" aria-expanded="false" data-i18n="nav2">연구</button>
+        <div class="nv-m">
+          <a href="index.html#labs" data-i18n="sub2a">5개 연구소</a>
+          <a href="research.html" data-i18n="sub2b">연구 내용</a>
+          <a href="people.html" data-i18n="sub2c">연구진</a>
+        </div>
+      </div>
+      <div class="nv">
+        <button class="nv-t" aria-expanded="false" data-i18n="nav3">기업 지원</button>
+        <div class="nv-m">
+          <a href="index.html#platform" data-i18n="sub3a">매칭 절차</a>
+          <a href="apply.html" class="cur" data-i18n="sub3b">기업 등록</a>
+        </div>
+      </div>
+      <a class="nv-s" href="news.html" data-i18n="nav6">활동 기록</a>
+      <a class="nv-s" href="index.html#contact" data-i18n="nav7">문의</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="ko" aria-pressed="true">KO</button>
+      <button data-lang="hu" aria-pressed="false">HU</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="ap_eyebrow">기업 등록 신청</span>
+    <h1 data-i18n="ap_title">회원사 데이터베이스 등록</h1>
+    <p data-i18n="ap_lede">아래 항목은 매칭 절차 1단계인 자격 검증과 2단계인 역량·수요 분석에 사용됩니다. 등록 후 담당자가 확인해 연락드립니다.</p>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="note">
+      <p data-i18n="ap_note">작성하신 내용은 이메일 프로그램으로 옮겨져 발송됩니다. 보내기를 누르면 메일 작성 창이 열리니, 내용을 확인하신 뒤 발송해 주세요.</p>
+    </div>
+
+
+    <section id="criteria" class="crit">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="critEyebrow">선별 기준</span>
+        <h2 data-i18n="critTitle">무엇을 보고 고르는가</h2>
+        <p data-i18n="critBody">매출 규모가 아니라 세 가지 가치를 기준으로 매칭 대상을 정합니다. 아래 항목이 등록 정보를 검토할 때의 판단 기준입니다.</p>
+      </div>
+    <div class="values">
+      <div class="value">
+        <img class="vicon" src="assets/icons/icon-technical.png" alt=""><span class="tag" data-i18n="v1t">기술적 가치</span>
+        <p data-i18n="v1b">밸류체인 기여도와 기술 성숙도. 헝가리 현지 파트너와 공동 연구가 가능하거나 생산라인에 바로 적용할 수 있는 수준인지 확인합니다.</p>
+      </div>
+      <div class="value">
+        <img class="vicon" src="assets/icons/icon-economic.png" alt=""><span class="tag" data-i18n="v2t">경제적 영향</span>
+        <p data-i18n="v2b">공급망에 실제로 편입될 수 있는지, 계약과 투자로 이어질 가능성이 있는지를 봅니다.</p>
+      </div>
+      <div class="value">
+        <img class="vicon" src="assets/icons/icon-sustain.png" alt=""><span class="tag" data-i18n="v3t">환경적 지속가능성</span>
+        <p data-i18n="v3b">배터리 여권 대응 준비 상태와 순환경제 기여도. 재사용·재활용 관련 실적이 있는지 확인합니다.</p>
+      </div>
+    </div>
+    </section>
+
+    <form id="applyForm" novalidate>
+
+      <fieldset>
+        <legend data-i18n="ap_s1">기업 정보</legend>
+        <div class="grid">
+          <div class="f">
+            <label for="company"><span data-i18n="ap_company">회사명</span><span class="req">*</span></label>
+            <input type="text" id="company" name="company" required autocomplete="organization">
+          </div>
+          <div class="f">
+            <label for="country"><span data-i18n="ap_country">소재 국가</span><span class="req">*</span></label>
+            <select id="country" name="country" required>
+              <option value="" data-i18n="ap_choose">선택하세요</option>
+              <option value="KR" data-i18n="ap_kr">대한민국</option>
+              <option value="HU" data-i18n="ap_hu">헝가리</option>
+              <option value="OTHER" data-i18n="ap_other">기타</option>
+            </select>
+          </div>
+          <div class="f">
+            <label for="website" data-i18n="ap_website">홈페이지</label>
+            <input type="url" id="website" name="website" placeholder="https://">
+          </div>
+          <div class="f">
+            <label for="employees" data-i18n="ap_employees">임직원 수</label>
+            <select id="employees" name="employees">
+              <option value="" data-i18n="ap_choose">선택하세요</option>
+              <option value="1-49">1–49</option>
+              <option value="50-249">50–249</option>
+              <option value="250-999">250–999</option>
+              <option value="1000+">1000+</option>
+            </select>
+          </div>
+          <div class="f wide">
+            <label><span data-i18n="ap_chain">배터리 밸류체인 내 역할</span><span class="req">*</span></label>
+            <div class="checks" id="chainBox">
+              <label><input type="checkbox" name="chain" value="소재·원료"><span data-i18n="ap_c1">소재·원료</span></label>
+              <label><input type="checkbox" name="chain" value="셀·모듈·팩"><span data-i18n="ap_c2">셀·모듈·팩</span></label>
+              <label><input type="checkbox" name="chain" value="장비·부품"><span data-i18n="ap_c3">장비·부품</span></label>
+              <label><input type="checkbox" name="chain" value="BMS·소프트웨어"><span data-i18n="ap_c4">BMS·소프트웨어</span></label>
+              <label><input type="checkbox" name="chain" value="시험·인증"><span data-i18n="ap_c5">시험·인증</span></label>
+              <label><input type="checkbox" name="chain" value="재사용·재활용"><span data-i18n="ap_c6">재사용·재활용</span></label>
+              <label><input type="checkbox" name="chain" value="기타"><span data-i18n="ap_c7">기타</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="ap_s2">담당자</legend>
+        <div class="grid">
+          <div class="f">
+            <label for="name"><span data-i18n="ap_name">이름</span><span class="req">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="f">
+            <label for="position" data-i18n="ap_position">직위</label>
+            <input type="text" id="position" name="position">
+          </div>
+          <div class="f">
+            <label for="email"><span data-i18n="ap_email">이메일</span><span class="req">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="f">
+            <label for="phone" data-i18n="ap_phone">연락처</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="ap_s3">협력 수요</legend>
+        <div class="grid">
+          <div class="f wide">
+            <label><span data-i18n="ap_interest">찾고 있는 협력 형태</span><span class="req">*</span></label>
+            <div class="checks" id="interestBox">
+              <label><input type="checkbox" name="interest" value="합작 투자"><span data-i18n="ap_i1">합작 투자</span></label>
+              <label><input type="checkbox" name="interest" value="기술 공동개발"><span data-i18n="ap_i2">기술 공동개발</span></label>
+              <label><input type="checkbox" name="interest" value="현지 유통망"><span data-i18n="ap_i3">현지 유통망</span></label>
+              <label><input type="checkbox" name="interest" value="공급 계약"><span data-i18n="ap_i4">공급 계약</span></label>
+              <label><input type="checkbox" name="interest" value="규제 대응 지원"><span data-i18n="ap_i5">규제 대응 지원</span></label>
+              <label><input type="checkbox" name="interest" value="인력 교류"><span data-i18n="ap_i6">인력 교류</span></label>
+            </div>
+          </div>
+          <div class="f">
+            <label for="trl" data-i18n="ap_trl">주력 기술 성숙도 (TRL)</label>
+            <select id="trl" name="trl">
+              <option value="" data-i18n="ap_choose">선택하세요</option>
+              <option value="TRL 1-3" data-i18n="ap_t1">TRL 1–3 · 기초 연구</option>
+              <option value="TRL 4-6" data-i18n="ap_t2">TRL 4–6 · 시제품 검증</option>
+              <option value="TRL 7-9" data-i18n="ap_t3">TRL 7–9 · 상용화 단계</option>
+            </select>
+          </div>
+          <div class="f">
+            <label for="hungary" data-i18n="ap_hungary">헝가리 진출 여부</label>
+            <select id="hungary" name="hungary">
+              <option value="" data-i18n="ap_choose">선택하세요</option>
+              <option value="진출 완료" data-i18n="ap_h1">이미 진출함</option>
+              <option value="진출 준비 중" data-i18n="ap_h2">진출 준비 중</option>
+              <option value="검토 단계" data-i18n="ap_h3">검토 단계</option>
+              <option value="해당 없음" data-i18n="ap_h4">해당 없음</option>
+            </select>
+          </div>
+          <div class="f wide">
+            <label for="message"><span data-i18n="ap_message">문의 내용</span><span class="req">*</span></label>
+            <textarea id="message" name="message" required></textarea>
+            <span class="hint" data-i18n="ap_mhint">주요 제품과 기술, 찾고 계신 파트너의 조건을 구체적으로 적어주실수록 매칭 정확도가 높아집니다.</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary" data-i18n="ap_submit">보내기</button>
+        <a href="index.html#platform" class="btn btn-ghost" data-i18n="ap_back">매칭 절차 보기</a>
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+      </div>
+
+    </form>
+  </div>
+</main>
+
+<footer>
+  <span data-i18n="f1">KHBCC — 한국–헝가리 배터리 협력센터</span>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+document.querySelectorAll('[data-i18n]').forEach(function(el){ I18N.ko[el.dataset.i18n]=el.innerHTML; });
+var LANG='ko';
+function setLang(lang){
+  LANG=lang;
+  var d=I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var v=d[el.dataset.i18n]; if(v!==undefined) el.innerHTML=v;
+  });
+  document.documentElement.lang=lang;
+  try{ localStorage.setItem('khbcc-lang',lang); }catch(e){}
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.setAttribute('aria-pressed', String(b.dataset.lang===lang));
+  });
+}
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click',function(){ setLang(b.dataset.lang); });
+});
+try{ var sv=localStorage.getItem('khbcc-lang'); if(sv&&I18N[sv]) setLang(sv); }catch(e){}
+
+var MSG={
+  ko:{ miss:'필수 항목을 채워주세요.', chain:'밸류체인 내 역할을 하나 이상 선택해 주세요.',
+       interest:'찾고 계신 협력 형태를 하나 이상 선택해 주세요.',
+       mail:'이메일 작성 창을 열었습니다. 내용을 확인하고 발송해 주세요.' },
+  en:{ miss:'Please fill in the required fields.', chain:'Select at least one value chain role.',
+       interest:'Select at least one type of cooperation.',
+       mail:'Your mail app has been opened. Please review and send.' },
+  hu:{ miss:'Kérjük, töltse ki a kötelező mezőket.', chain:'Válasszon legalább egy értéklánc-szerepet.',
+       interest:'Válasszon legalább egy együttműködési formát.',
+       mail:'Megnyitottuk a levelezőt. Kérjük, ellenőrizze és küldje el.' }
+};
+function L(k){ return (MSG[LANG]||MSG.ko)[k]; }
+
+function checked(box){
+  return Array.prototype.slice.call(document.querySelectorAll('#'+box+' input:checked')).map(function(i){return i.value;});
+}
+
+document.getElementById('applyForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var st=document.getElementById('status');
+  var f=e.target;
+  var need=['company','country','name','email','message'];
+  for(var i=0;i<need.length;i++){
+    var el=f[need[i]];
+    if(!el.value.trim()){ st.className='status err'; st.textContent=L('miss'); el.focus(); return; }
+  }
+  var chain=checked('chainBox');
+  if(!chain.length){ st.className='status err'; st.textContent=L('chain'); return; }
+  var interest=checked('interestBox');
+  if(!interest.length){ st.className='status err'; st.textContent=L('interest'); return; }
+
+  var L2=[
+    'KHBCC 기업 등록 신청 / Firm registration',
+    '',
+    '[기업 정보]',
+    '회사명: '+f.company.value,
+    '소재 국가: '+f.country.value,
+    '홈페이지: '+(f.website.value||'-'),
+    '임직원 수: '+(f.employees.value||'-'),
+    '밸류체인 역할: '+chain.join(', '),
+    '',
+    '[담당자]',
+    '이름: '+f.name.value,
+    '직위: '+(f.position.value||'-'),
+    '이메일: '+f.email.value,
+    '연락처: '+(f.phone.value||'-'),
+    '',
+    '[협력 수요]',
+    '협력 형태: '+interest.join(', '),
+    'TRL: '+(f.trl.value||'-'),
+    '헝가리 진출: '+(f.hungary.value||'-'),
+    '',
+    '[문의 내용]',
+    f.message.value
+  ].join('\n');
+
+  var subject='[KHBCC 등록] '+f.company.value;
+  window.location.href='mailto:platform@khbcc.org?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(L2);
+  st.className='status ok'; st.textContent=L('mail');
+});
+
+document.querySelectorAll('.nv-t').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var nv=btn.parentElement, was=nv.classList.contains('open');
+    document.querySelectorAll('.nv').forEach(function(n){ n.classList.remove('open'); n.querySelector('.nv-t').setAttribute('aria-expanded','false'); });
+    if(!was){ nv.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.nv').forEach(function(n){ n.classList.remove('open'); n.querySelector('.nv-t').setAttribute('aria-expanded','false'); });
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') document.querySelectorAll('.nv').forEach(function(n){ n.classList.remove('open'); n.querySelector('.nv-t').setAttribute('aria-expanded','false'); });
+});
+</script>
+</body>
+</html>
